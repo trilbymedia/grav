@@ -70,6 +70,9 @@ jobs:
         run: |
           bash ./build-grav.sh skeletons.txt
 
+      - name: Fail on purpose
+        run: |
+          curl
 
 #      - name: Get composer cache directory
 #        id: composer-cache
