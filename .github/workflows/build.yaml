@@ -53,8 +53,8 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          apt-get -y update -qq  < /dev/null > /dev/null
-          apt-get -y install -qq git zip < /dev/null > /dev/null
+          sudo apt-get -y update -qq  < /dev/null > /dev/null
+          sudo apt-get -y install -qq git zip < /dev/null > /dev/null
 
       - name: Retrieval of Builder Scripts
         run: |
