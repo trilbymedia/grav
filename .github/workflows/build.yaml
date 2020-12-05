@@ -77,7 +77,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
-          asset_paths: '["$GITHUB_WORKSPACE/*.zip"]'
+          asset_paths: '["./grav-dist/*.zip"]'
 
 #       Uncomment to fail a build on purpose so that the container can be inspected
 #      - name: Fail on purpose
