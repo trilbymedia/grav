@@ -74,10 +74,10 @@ jobs:
       - name: Upload Grav Release Assets
         id: upload-release-asset
         uses: alexellis/upload-assets@0.2.2
-          env:
-            GITHUB_TOKEN: ${{ github.token }}
-          with:
-            asset_paths: '["$GITHUB_WORKSPACE/*.zip"]'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          asset_paths: '["$GITHUB_WORKSPACE/*.zip"]'
 
 #       Uncomment to fail a build on purpose so that the container can be inspected
 #      - name: Fail on purpose
