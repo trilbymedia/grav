@@ -69,17 +69,11 @@ jobs:
         run: |
           bash ./build-grav.sh skeletons.txt
 
-<<<<<<< Updated upstream
-      - name: Fail on purpose
-        run: |
-          curl
-=======
       - name: Sleep for 2 minutes
         uses: jakejarvis/wait-action@master
         with:
           time: '120s'    
 
->>>>>>> Stashed changes
 
 #      - name: Get composer cache directory
 #        id: composer-cache
