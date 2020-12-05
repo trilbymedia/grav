@@ -53,26 +53,28 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          apt-get update
-          apt-get -y install git zip
+          apt-get -y update -qq  < /dev/null > /dev/null
+          apt-get -y install -qq git zip < /dev/null > /dev/null
 
-      - name: Retrieve Builder Scripts
+      - name: Retrieval of Builder Scripts
         run: |
           # Real Grav URL
-          # curl --silent -H "Authorization: token ${{ secrets.GLOBAL_TOKEN }}" -H "Accept: application/vnd.github.v3.raw" ${{ secrets.BUILD_SCRIPT_URL }} --output build-grav.sh
+          curl --silent -H "Authorization: token ${{ secrets.GLOBAL_TOKEN }}" -H "Accept: application/vnd.github.v3.raw" ${{ secrets.BUILD_SCRIPT_URL }} --output build-grav.sh
 
           # Development Local URL
-          curl ${{ secrets.BUILD_SCRIPT_URL }} --output build-grav.sh
+          # curl ${{ secrets.BUILD_SCRIPT_URL }} --output build-grav.sh
+
+          # Store Skeletons
           echo ${{ secrets.SKELETONS }} > skeletons.txt
 
-      - name: Builder Script
+      - name: Grav Builder
         run: |
           bash ./build-grav.sh skeletons.txt
 
-      - name: Sleep for 2 minutes
-        uses: jakejarvis/wait-action@master
-        with:
-          time: '120s'    
+      # Uncomment to fail a build on purpose so that the container can be inspected
+      - name: Fail on purpose
+          run: |
+            curl
 
 
 #      - name: Get composer cache directory
