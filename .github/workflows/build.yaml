@@ -71,22 +71,7 @@ jobs:
         run: |
           bash ./build-grav.sh skeletons.txt
 
-      # Uncomment to fail a build on purpose so that the container can be inspected
-      - name: Fail on purpose
-        run: |
-          curl
-
-#      - name: Get composer cache directory
-#        id: composer-cache
-#        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-#
-#      - name: Cache dependencies
-#        uses: actions/cache@v2
-#        with:
-#          path: ${{ steps.composer-cache.outputs.dir }}
-#          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
-#          restore-keys: ${{ runner.os }}-composer-
-
-
-
-
+#       Uncomment to fail a build on purpose so that the container can be inspected
+#      - name: Fail on purpose
+#        run: |
+#          curl
