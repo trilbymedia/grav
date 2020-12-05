@@ -54,9 +54,7 @@ jobs:
       - name: Install Dependencies
         run: |
           apt-get update
-          apt-get -y install git
-          apt-get -y install zip
-          bin/grav install
+          apt-get -y install git zip
 
       - name: Retrieve Builder Scripts
         run: |
@@ -71,9 +69,17 @@ jobs:
         run: |
           bash ./build-grav.sh skeletons.txt
 
+<<<<<<< Updated upstream
       - name: Fail on purpose
         run: |
           curl
+=======
+      - name: Sleep for 2 minutes
+        uses: jakejarvis/wait-action@master
+        with:
+          time: '120s'    
+
+>>>>>>> Stashed changes
 
 #      - name: Get composer cache directory
 #        id: composer-cache
