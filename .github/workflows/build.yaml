@@ -55,6 +55,7 @@ jobs:
         run: |
           apt-get update
           apt-get -y install git
+          apt-get -y install zip
           bin/grav install
 
       - name: Retrieve Builder Scripts
