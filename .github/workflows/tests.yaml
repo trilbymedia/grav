@@ -17,6 +17,16 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
+
+      - name: set_matrix_data
+        id: set_matrix_data
+        uses: noobly314/share-data@v1
+        with:
+          share-id: matrix
+          mode: set
+          key: matrix
+          value: ${{ matrix }}
+
       - uses: actions/checkout@v2
 
       - name: Setup PHP
@@ -52,13 +62,20 @@ jobs:
       runs-on: ubuntu-latest
       if: always() 
       steps:
+        - name: get_matrix_data
+          id: get_matrix_data
+          uses: noobly314/share-data@v1
+          with:
+            share-id: matrix
+            mode: get
+            key: matrix
         - uses: technote-space/workflow-conclusion-action@v2
         - uses: 8398a7/action-slack@v3
           with:
              status: failure
-             fields: repo,message,commit,author,action,took
+             fields: repo,message,commit,author,action,job,took
              icon_emoji: ':octocat:'
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-            MATRIX_CONTEXT: ${{ toJson(matrix) }}
+            MATRIX_CONTEXT: ${{ toJson(steps.get_matraix_data) }}
           if: env.WORKFLOW_CONCLUSION == 'success'
