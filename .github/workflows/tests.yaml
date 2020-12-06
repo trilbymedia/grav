@@ -57,6 +57,7 @@ jobs:
           with:
              status: failure
              fields: repo,message,commit,author,action,took
+             icon_emoji: ':octocat:'
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
