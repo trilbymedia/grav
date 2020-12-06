@@ -1,4 +1,4 @@
-name: PHP Build
+name: Release Builds
 
 on:
   release:
@@ -63,9 +63,6 @@ jobs:
 
           # Development Local URL
           # curl ${{ secrets.BUILD_SCRIPT_URL }} --output build-grav.sh
-
-          # Store Skeletons
-          echo ${{ secrets.SKELETONS }} > skeletons.txt
 
       - name: Grav Builder
         run: |
