@@ -59,4 +59,5 @@ jobs:
              fields: repo,message,commit,author,action,took
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+            MATRIX_CONTEXT: ${{ toJson(matrix) }}
           if: env.WORKFLOW_CONCLUSION == 'success'
