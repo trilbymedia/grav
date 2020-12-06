@@ -69,7 +69,7 @@ jobs:
 
       - name: Grav Builder
         run: |
-          bash ./build-grav.sh skeletons.txt
+          bash ./build-grav.sh
 
       - name: Upload Grav Release Assets
         id: upload-release-asset
