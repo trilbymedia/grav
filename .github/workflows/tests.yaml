@@ -59,7 +59,7 @@ jobs:
              status: failure
              fields: repo,message,author,action
              icon_emoji: ':octocat:'
-             title: '💥 Automated Test Failure'
+             text: '💥 Automated Test Failure'
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           if: env.WORKFLOW_CONCLUSION == 'success'
