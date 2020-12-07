@@ -7,6 +7,8 @@ on:
     branches: [ develop ]
 
 jobs:
+  prepare: 
+
   unit-tests:
 
     runs-on: ${{ matrix.os }}
@@ -58,6 +60,8 @@ jobs:
              status: failure
              fields: repo,message,commit,author,action
              icon_emoji: ':octocat:'
+             username: 'GitHub Actions'
+             author_name: '💥 Automated Test Failure'
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           if: env.WORKFLOW_CONCLUSION == 'success'
