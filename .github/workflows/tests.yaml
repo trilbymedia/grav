@@ -59,7 +59,7 @@ jobs:
              status: failure
              fields: repo,message,author,action
              icon_emoji: ':octocat:'
-             username: 'Github Action Tests'
+             author_name: 'Github Action Tests'
              text: '💥 Automated Test Failure'
           env:
             GITHUB_TOKEN: ${{ github.token }}
