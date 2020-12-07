@@ -57,10 +57,9 @@ jobs:
         - uses: 8398a7/action-slack@v3
           with:
              status: failure
-             fields: repo,message,commit,author,action
+             fields: repo,message,author,action
              icon_emoji: ':octocat:'
-             username: 'GitHub Actions'
-             author_name: '💥 Automated Test Failure'
+             title: '💥 Automated Test Failure'
           env:
             SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           if: env.WORKFLOW_CONCLUSION == 'success'
